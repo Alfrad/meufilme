@@ -50,8 +50,8 @@ public class FilmeController {
 	
 	@ApiOperation(value="Atualiza um filme")
 	@PutMapping
-	public FilmeDTO atualizaFilme(@RequestBody FilmeDTO filme) {
-		return service.salvar(filme);
+	public FilmeDTO atualizaFilme(@RequestBody @Valid FilmeDTO filme) {
+		return service.alterar(filme);
 	}
 
 	@ApiOperation(value="Busca um filme por ano de forma paginada")

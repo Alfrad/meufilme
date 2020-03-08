@@ -6,7 +6,7 @@ import br.com.kek.meufilme.utils.ExtrairMensagemUtil;
  * @author Kelisson.Leite
  *
  */
-public class RegistroNaoEncontradoException extends RuntimeException {
+public class UpdateRegistroSemIdentificadorException extends RuntimeException {
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class RegistroNaoEncontradoException extends RuntimeException {
 	/**
 	 * @param msg
 	 */
-	public RegistroNaoEncontradoException(String msg) {
+	public UpdateRegistroSemIdentificadorException(String msg) {
 		super(ExtrairMensagemUtil.extrairMensagem(msg));
     }
 
@@ -24,7 +24,7 @@ public class RegistroNaoEncontradoException extends RuntimeException {
      * @param msg
      * @param e
      */
-    public RegistroNaoEncontradoException(String msg, Exception e) {
+    public UpdateRegistroSemIdentificadorException(String msg, Exception e) {
     	super(ExtrairMensagemUtil.extrairMensagem(msg) + " because of " + e.toString());
     }
 

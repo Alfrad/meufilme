@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -21,13 +22,13 @@ public class FilmeDTO implements Serializable {
 	
 	private Long id;
 	
-	@NotNull
+	@NotBlank(message = "{filme.nomeFilme}")
 	private String nome;
 	
-	@NotNull
+	@NotBlank(message = "{filme.sinopseFilme}")
 	private String sinopse;
 	
-	@NotNull
+	@NotNull(message = "{filme.dataLancamentoFilme}")
 	private Date dataLancamento;
 	
 	private List<GeneroDTO> generos;

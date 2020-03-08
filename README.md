@@ -18,7 +18,7 @@
     <img alt="Repository issues" src="https://img.shields.io/github/issues/Alfrad/meufilme.svg">
   </a>
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/Alfrad/meufilme.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/license/Alfrad/meufilme">
 </div>
 
 <div align="center">
@@ -46,4 +46,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## :memo: License
 
-Este projeto está sob a licença MIT. Consulte [LICENSE]() para obter mais informações.
+Este projeto está sob a licença MIT. Consulte [LICENSE](https://github.com/Alfrad/meufilme/blob/master/LICENSE) para obter mais informações.

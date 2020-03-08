@@ -13,5 +13,17 @@ public class GlobalExceptionHandler {
 	public String handleNotFoundException(RegistroNaoEncontradoException ex) {
 		return ex.getMessage();
 	}
+	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(GeneroNaoCadastradoException.class)
+	public String handleGeneroNaoCadastradoException(GeneroNaoCadastradoException ex) {
+		return ex.getMessage();
+	}
+	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(UpdateRegistroSemIdentificadorException.class)
+	public String handleUpdateRegistroSemIdentificadorException(UpdateRegistroSemIdentificadorException ex) {
+		return ex.getMessage();
+	}
 
 }

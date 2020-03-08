@@ -7,11 +7,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.stereotype.Service;
 
 import br.com.kek.meufilme.domain.Filme;
 import br.com.kek.meufilme.dto.FilmeDTO;
+import br.com.kek.meufilme.exception.GeneroNaoCadastradoException;
 import br.com.kek.meufilme.exception.RegistroNaoEncontradoException;
+import br.com.kek.meufilme.exception.UpdateRegistroSemIdentificadorException;
 import br.com.kek.meufilme.repository.FilmeRepository;
 
 @Service
@@ -24,13 +27,26 @@ public class FilmeService {
 	private ModelMapper modelMapper;
 
 	public FilmeDTO salvar(FilmeDTO filme) {
-		Filme filmeSalvo = repository.save(modelMapper.map(filme, Filme.class));
-		return modelMapper.map(filmeSalvo, FilmeDTO.class);
+		try {
+			Filme filmeSalvo = repository.save(modelMapper.map(filme, Filme.class));
+			return modelMapper.map(filmeSalvo, FilmeDTO.class);
+		} catch (JpaObjectRetrievalFailureException ex) {
+			throw new GeneroNaoCadastradoException("excecao.generoNaoExiste");
+		}
+	}
+	
+	public FilmeDTO alterar(FilmeDTO filme) {
+		if(filme.getId() == null) {
+			throw new UpdateRegistroSemIdentificadorException("excecao.registroSemIdentificador");
+		}
+		return salvar(filme);
 	}
 
 	public FilmeDTO obter(Long idFilme) {
-		return modelMapper.map(repository.findById(idFilme)
-				.orElseThrow(() -> new RegistroNaoEncontradoException("Nenhum Registro Encontrado!")), FilmeDTO.class);
+		return modelMapper.map(
+				repository.findById(idFilme)
+						.orElseThrow(() -> new RegistroNaoEncontradoException("excecao.nenhumRegistroEncontrado")),
+				FilmeDTO.class);
 	}
 
 	public List<FilmeDTO> buscarFilesPorAno(Integer ano, Pageable pageable) {
@@ -44,7 +60,7 @@ public class FilmeService {
 	}
 
 	public void remover(Long idFilme) {
-		//aproveitando exceção caso não exista um filme 404
+		// aproveitando exceção caso não exista um filme retornando 404
 		FilmeDTO filme = obter(idFilme);
 		repository.deleteById(filme.getId());
 	}
