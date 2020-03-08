@@ -44,6 +44,7 @@ public class FilmeService {
 	}
 
 	public void remover(Long idFilme) {
+		//aproveitando exceção caso não exista um filme 404
 		FilmeDTO filme = obter(idFilme);
 		repository.deleteById(filme.getId());
 	}
