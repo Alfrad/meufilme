@@ -38,19 +38,19 @@ public class FilmeController {
 
 	@ApiOperation(value="Salva um filme")
 	@PostMapping
-	public FilmeDTO salvar(@RequestBody FilmeDTO filme) {
+	public FilmeDTO salvar(@RequestBody @Valid FilmeDTO filme) {
 		return service.salvar(filme);
 	}
 	
 	@ApiOperation(value="Deleta um filme")
-	@DeleteMapping
-	public void deletaFilme(@RequestBody @Valid FilmeDTO filme) {
-		service.remover(filme);
+	@DeleteMapping(value = "/{idFilme}")
+	public void deletaFilme(@PathVariable Long idFilme) {
+		service.remover(idFilme);
 	}
 	
 	@ApiOperation(value="Atualiza um filme")
 	@PutMapping
-	public FilmeDTO atualizaFilme(@RequestBody @Valid FilmeDTO filme) {
+	public FilmeDTO atualizaFilme(@RequestBody FilmeDTO filme) {
 		return service.salvar(filme);
 	}
 
