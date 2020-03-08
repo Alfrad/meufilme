@@ -44,6 +44,7 @@ public class FilmeService {
 	}
 
 	public void remover(Long idFilme) {
-		repository.deleteById(idFilme);
+		FilmeDTO filme = obter(idFilme);
+		repository.deleteById(filme.getId());
 	}
 }
