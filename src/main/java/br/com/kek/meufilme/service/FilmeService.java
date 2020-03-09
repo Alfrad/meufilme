@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.stereotype.Service;
@@ -49,13 +48,15 @@ public class FilmeService {
 				FilmeDTO.class);
 	}
 
-	public List<FilmeDTO> buscarFilesPorAno(Integer ano, Pageable pageable) {
-		return repository.buscarFilesPorAno(ano, pageable).stream().map(f -> modelMapper.map(f, FilmeDTO.class))
+	public List<FilmeDTO> buscarFilmesPorAno(Integer ano, Pageable pageable) {
+		return repository.buscarFilmesPorAno(ano, pageable).stream()
+				.map(f -> modelMapper.map(f, FilmeDTO.class))
 				.collect(Collectors.toList());
 	}
 
-	public List<FilmeDTO> buscarFilesPorGenero(Integer idGenero, PageRequest pageable) {
-		return repository.buscarFilesPorGenero(idGenero, pageable).stream().map(f -> modelMapper.map(f, FilmeDTO.class))
+	public List<FilmeDTO> buscarFilmesPorGenero(Integer idGenero, Pageable page) {
+		return repository.buscarFilmesPorGenero(idGenero, page).stream()
+				.map(f -> modelMapper.map(f, FilmeDTO.class))
 				.collect(Collectors.toList());
 	}
 

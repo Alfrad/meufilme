@@ -5,8 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,16 +55,15 @@ public class FilmeController {
 
 	@ApiOperation(value="Busca um filme por ano de forma paginada")
 	@GetMapping(params = { "ano", "page", "size" })
-	public List<FilmeDTO> buscarFilesPorAno(@RequestParam("ano") Integer ano, @RequestParam("page") Integer page,
-			@RequestParam("size") Integer size) {
-		return service.buscarFilesPorAno(ano, PageRequest.of(page, size, Sort.by("id").ascending()));
+	public List<FilmeDTO> buscarFilmesPorAno(@RequestParam("ano") Integer ano, Pageable page) {
+		return service.buscarFilmesPorAno(ano, page);
 	}
 
 	@ApiOperation(value="Busca um filme por idGenero de forma paginada")
 	@GetMapping(params = { "idGenero", "page", "size" })
-	public List<FilmeDTO> buscarFilesPorGenero(@RequestParam("idGenero") Integer idGenero,
-			@RequestParam("page") Integer page, @RequestParam("size") Integer size) {
-		return service.buscarFilesPorGenero(idGenero, PageRequest.of(page, size));
+	public List<FilmeDTO> buscarFilmesPorGenero(@RequestParam("idGenero") Integer idGenero,
+			Pageable page) {
+		return service.buscarFilmesPorGenero(idGenero, page);
 	}
 
 }
