@@ -23,8 +23,8 @@
 
 <div align="center">
   <a href="#thinking-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rocket-tecnologias">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-rotas">How To Use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-tecnologias">Technologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-rotas">Rotas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </div>
 
@@ -43,6 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## :information_source: Rotas
 
+- [Swagger2](https://meufilme.herokuapp.com/swagger-ui.html/)
 
 ## :memo: License
 
