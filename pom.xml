@@ -22,7 +22,7 @@
 	<artifactId>meufilme</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>meufilme</name>
-	<description>Desafio Técnico proposto para seleção da vaga - Java Backend</description>
+	<description>Desafio técnico proposto para seleção da vaga: Java Backend</description>
 
 	<dependencies>
 		<dependency>

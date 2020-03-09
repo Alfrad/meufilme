@@ -27,8 +27,8 @@ public class SwaggerConfig {
 	private ApiInfo metaInfo() {
 		return new ApiInfoBuilder()
 				.contact(new Contact("Kélisson Jean", "https://github.com/Alfrad/", "guimaraes.jean@gmail.com"))
-				.license("Apache License Version 2.0").licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
-				.title("API REST de Filmes").description("Desafio Técnico proposto para seleção da vaga - Java Backend")
+				.license("MIT").licenseUrl("https://opensource.org/licenses/MIT")
+				.title("API REST de Filmes").description("Desafio técnico proposto para seleção da vaga: Java Backend")
 				.version("1.0.0").termsOfServiceUrl("Terms of Service").build();
 	}
 

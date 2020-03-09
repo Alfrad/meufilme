@@ -134,7 +134,7 @@ public class FilmeServiceTest {
 		Mockito.when(repository.findById(Mockito.anyLong())).thenReturn(Optional.of(filme));
 		assertThat(service.obter(12L), notNullValue());
 	}
-	
+
 	private Filme recuperarFilmeMontado() {
 		return Filme.builder().id(12L).nome("A volta dos que não foram").dataLancamento(new Date()).build();
 	}

@@ -43,7 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## :information_source: Rotas
 
-- [Swagger2](https://meufilme.herokuapp.com/swagger-ui.html/)
+- [Swagger2](https://meufilme.herokuapp.com/swagger-ui.html)
 
 ## :memo: License
 
